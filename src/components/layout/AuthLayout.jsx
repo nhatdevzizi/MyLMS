@@ -1,0 +1,5 @@
+import learningIllustration from '../../assets/learning.svg';
+import { GraduationCap, Quote, ArrowUpRight } from 'lucide-react';
+export default function AuthLayout({ children }) {
+  return <main className="auth-layout"><section className="auth-story"><div className="brand"><span className="brand__mark"><GraduationCap size={25} aria-hidden="true" /></span><span>MyLMS.</span></div><div className="auth-story__copy"><span className="auth-story__term">Northstar Academy · Fall 2026</span><h1>Good things<br />begin with learning.</h1><p>A shared space for curious minds, meaningful work, and the next step forward.</p><img src={learningIllustration} alt="An open book and a connected learning path" /></div><div className="auth-story__footer"><Quote size={24} aria-hidden="true" /><p>One place to learn.<br />Room for every possibility.</p><ArrowUpRight size={26} aria-hidden="true" /></div></section><section className="auth-content">{children}<p className="auth-preview-note">Static design preview · Account actions are not connected.</p><footer>© 2026 Northstar Academy · MyLMS</footer></section></main>;
+}

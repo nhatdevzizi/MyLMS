@@ -1,0 +1,24 @@
+:root {
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --canvas: #f7f8fb;
+  --surface: #ffffff;
+  --soft: #f1f3f7;
+  --ink: #1b273c;
+  --secondary: #526078;
+  --muted: #6b778d;
+  --border: #e7eaf0;
+  --accent: #245ce6;
+  --accent-hover: #184bc8;
+  --accent-soft: #edf2ff;
+  --green: #248064;
+  --danger: #bd3545;
+  --sidebar-width: 232px;
+  --radius: 10px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+}

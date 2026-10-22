@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.taste-skill/
+artifacts/
+*.local
+.pnpm-store/
+.git/
