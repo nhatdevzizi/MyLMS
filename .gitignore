@@ -5,3 +5,4 @@ artifacts/
 *.local
 .pnpm-store/
 .git/
+.prettierrc.json

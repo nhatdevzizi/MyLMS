@@ -1,5 +1,12 @@
 import algorithmIllustration from '../../assets/algorithms.svg';
-import { BookOpen, Users, Clock, FileText, PlayCircle, ArrowDownToLine } from 'lucide-react';
+import {
+  BookOpen,
+  Users,
+  Clock,
+  FileText,
+  PlayCircle,
+  ArrowDownToLine,
+} from 'lucide-react';
 import Breadcrumbs from '../../components/common/Breadcrumbs.jsx';
 import Tabs from '../../components/common/Tabs.jsx';
 import Panel from '../../components/common/Panel.jsx';
@@ -14,5 +21,170 @@ import { announcements } from '../../data/mockAnnouncements.js';
 import { students } from '../../data/mockUsers.js';
 export default function CourseDetail({ instructor = false }) {
   const course = courses[0];
-  return <><Breadcrumbs items={['My courses', course.code]} /><section className="course-banner tone-blue"><div><span>{course.code} · Fall 2026</span><h1>{course.title}</h1><p>{course.description}</p><div className="inline-metadata"><span><BookOpen size={16} />12 modules</span><span><Users size={16} />32 students</span><span><Clock size={16} />16 weeks</span></div></div><img src={algorithmIllustration} alt="" /></section><Tabs items={['Overview', 'Learning materials', 'Assignments', 'Announcements', 'People']} active="Overview" /><div className="content-columns"><div className="stack"><Panel title="About this course"><div className="panel__body prose"><p>Learn to choose the right data structure, reason about efficiency, and build solutions that scale. Each module connects a core concept to a practical programming challenge.</p><h3>What you’ll learn</h3><ul><li>Implement lists, stacks, queues, trees, and graphs.</li><li>Compare sorting and searching algorithms using complexity analysis.</li><li>Solve graph problems with breadth-first and depth-first search.</li><li>Write clear, testable code and explain your design decisions.</li></ul></div></Panel><Panel title="Learning materials" description="Week 8 · Graphs and traversal"><div className="resource-list">{learningMaterials.map(item => <div className="resource-row" key={item.title}><span className="resource-icon">{item.type === 'Video' ? <PlayCircle size={22} /> : <FileText size={22} />}</span><div><strong>{item.title}</strong><p>{item.detail}</p></div><Button variant="icon" aria-label={`View ${item.title}`}><ArrowDownToLine size={18} /></Button></div>)}</div></Panel><Panel title="Course assignments">{assignments.filter(item => item.course.id === course.id).map(item => <AssignmentCard key={item.id} assignment={item} />)}</Panel><Panel title="Latest announcement"><AnnouncementCard announcement={announcements[0]} /></Panel></div><aside className="stack"><Panel title={instructor ? 'Course completion' : 'Your progress'}><div className="panel__body"><ProgressBar value={course.progress} label="8 of 12 modules complete" /><p className="secondary-text">Next: {course.nextLesson}</p><Button className="button--full">{instructor ? 'Manage materials' : 'Continue learning'}</Button></div></Panel><Panel title="Your instructor"><div className="panel__body"><div className="person-row"><UserAvatar user={course.instructor} /><div><strong>{course.instructor.name}</strong><p className="secondary-text">Computer science department</p></div></div><p className="secondary-text">Office hours · Tue &amp; Thu, 2–3 PM<br />Room B201 · Northstar Academy</p><Button variant="secondary" className="button--full">Contact instructor</Button></div></Panel><Panel title="Your classmates" action={<span className="count-badge">32</span>}><div className="panel__body"><div className="avatar-group">{students.map(student => <UserAvatar key={student.id} user={student} />)}<span>+28</span></div><p className="secondary-text">Learn better, together.</p><Button variant="text">View class list</Button></div></Panel></aside></div></>;
+  return (
+    <>
+      <Breadcrumbs items={['My courses', course.code]} />
+      <section className="course-banner tone-blue">
+        <div>
+          <span>{course.code} · Fall 2026</span>
+          <h1>{course.title}</h1>
+          <p>{course.description}</p>
+          <div className="inline-metadata">
+            <span>
+              <BookOpen size={16} />
+              12 modules
+            </span>
+            <span>
+              <Users size={16} />
+              32 students
+            </span>
+            <span>
+              <Clock size={16} />
+              16 weeks
+            </span>
+          </div>
+        </div>
+        <img
+          src={algorithmIllustration}
+          alt=""
+        />
+      </section>
+      <Tabs
+        items={[
+          'Overview',
+          'Learning materials',
+          'Assignments',
+          'Announcements',
+          'People',
+        ]}
+        active="Overview"
+      />
+      <div className="content-columns">
+        <div className="stack">
+          <Panel title="About this course">
+            <div className="panel__body prose">
+              <p>
+                Learn to choose the right data structure, reason about
+                efficiency, and build solutions that scale. Each module connects
+                a core concept to a practical programming challenge.
+              </p>
+              <h3>What you’ll learn</h3>
+              <ul>
+                <li>Implement lists, stacks, queues, trees, and graphs.</li>
+                <li>
+                  Compare sorting and searching algorithms using complexity
+                  analysis.
+                </li>
+                <li>
+                  Solve graph problems with breadth-first and depth-first
+                  search.
+                </li>
+                <li>
+                  Write clear, testable code and explain your design decisions.
+                </li>
+              </ul>
+            </div>
+          </Panel>
+          <Panel
+            title="Learning materials"
+            description="Week 8 · Graphs and traversal"
+          >
+            <div className="resource-list">
+              {learningMaterials.map((item) => (
+                <div
+                  className="resource-row"
+                  key={item.title}
+                >
+                  <span className="resource-icon">
+                    {item.type === 'Video' ? (
+                      <PlayCircle size={22} />
+                    ) : (
+                      <FileText size={22} />
+                    )}
+                  </span>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <p>{item.detail}</p>
+                  </div>
+                  <Button
+                    variant="icon"
+                    aria-label={`View ${item.title}`}
+                  >
+                    <ArrowDownToLine size={18} />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </Panel>
+          <Panel title="Course assignments">
+            {assignments
+              .filter((item) => item.course.id === course.id)
+              .map((item) => (
+                <AssignmentCard
+                  key={item.id}
+                  assignment={item}
+                />
+              ))}
+          </Panel>
+          <Panel title="Latest announcement">
+            <AnnouncementCard announcement={announcements[0]} />
+          </Panel>
+        </div>
+        <aside className="stack">
+          <Panel title={instructor ? 'Course completion' : 'Your progress'}>
+            <div className="panel__body">
+              <ProgressBar
+                value={course.progress}
+                label="8 of 12 modules complete"
+              />
+              <p className="secondary-text">Next: {course.nextLesson}</p>
+              <Button className="button--full">
+                {instructor ? 'Manage materials' : 'Continue learning'}
+              </Button>
+            </div>
+          </Panel>
+          <Panel title="Your instructor">
+            <div className="panel__body">
+              <div className="person-row">
+                <UserAvatar user={course.instructor} />
+                <div>
+                  <strong>{course.instructor.name}</strong>
+                  <p className="secondary-text">Computer science department</p>
+                </div>
+              </div>
+              <p className="secondary-text">
+                Office hours · Tue &amp; Thu, 2–3 PM
+                <br />
+                Room B201 · Northstar Academy
+              </p>
+              <Button
+                variant="secondary"
+                className="button--full"
+              >
+                Contact instructor
+              </Button>
+            </div>
+          </Panel>
+          <Panel
+            title="Your classmates"
+            action={<span className="count-badge">32</span>}
+          >
+            <div className="panel__body">
+              <div className="avatar-group">
+                {students.map((student) => (
+                  <UserAvatar
+                    key={student.id}
+                    user={student}
+                  />
+                ))}
+                <span>+28</span>
+              </div>
+              <p className="secondary-text">Learn better, together.</p>
+              <Button variant="text">View class list</Button>
+            </div>
+          </Panel>
+        </aside>
+      </div>
+    </>
+  );
 }

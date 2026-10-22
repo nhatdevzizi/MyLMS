@@ -1,16 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700;750&display=swap');
-body { font-family: var(--font); font-size: 13px; line-height: 1.55; color: var(--ink); -webkit-font-smoothing: antialiased; }
-h1, h2, h3, p { margin: 0; }
-h1 { font-size: clamp(25px, 2.1vw, 32px); line-height: 1.22; font-weight: 650; letter-spacing: -1.1px; }
-h2 { font-size: 15px; line-height: 1.4; font-weight: 650; letter-spacing: -.35px; }
-h3 { font-size: 13px; line-height: 1.5; font-weight: 600; }
-button, input, select, textarea { font: inherit; }
-strong { font-weight: 600; }
-.secondary-text { color: var(--secondary); font-size: 12px; line-height: 1.7; margin-block: 12px; }
-.field-hint { color: var(--muted); font-size: 11px; }
-.prose { font-size: 13px; line-height: 1.85; color: var(--secondary); }
-.prose p + p { margin-top: 14px; }
-.prose h3 { margin: 23px 0 8px; color: var(--ink); }
-.prose h3:first-child { margin-top: 0; }
-.prose ul, .prose ol { padding-left: 20px; margin-block: 12px; }
-.prose li + li { margin-top: 10px; }
+body {
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: clamp(25px, 2.1vw, 32px);
+  line-height: 1.22;
+  font-weight: 650;
+  letter-spacing: -1.1px;
+}
+h2 {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 650;
+  letter-spacing: -0.35px;
+}
+h3 {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+strong {
+  font-weight: 600;
+}
+.secondary-text {
+  color: var(--secondary);
+  font-size: 12px;
+  line-height: 1.7;
+  margin-block: 12px;
+}
+.field-hint {
+  color: var(--muted);
+  font-size: 11px;
+}
+.prose {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--secondary);
+}
+.prose p + p {
+  margin-top: 14px;
+}
+.prose h3 {
+  margin: 23px 0 8px;
+  color: var(--ink);
+}
+.prose h3:first-child {
+  margin-top: 0;
+}
+.prose ul,
+.prose ol {
+  padding-left: 20px;
+  margin-block: 12px;
+}
+.prose li + li {
+  margin-top: 10px;
+}

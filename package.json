@@ -17,6 +17,7 @@
     "vite": "^6.4.5"
   },
   "allowScripts": {
-    "vite@6.4.5": true
+    "vite@6.4.5": true,
+    "esbuild@0.25.12": true
   }
 }

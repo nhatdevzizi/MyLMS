@@ -6,4 +6,8 @@ import './styles/typography.css';
 import './styles/global.css';
 import './styles/responsive.css';
 
-createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);
+createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);

@@ -1,4 +1,10 @@
-import { CalendarDays, FileText, Clock, ArrowDownToLine, Info } from 'lucide-react';
+import {
+  CalendarDays,
+  FileText,
+  Clock,
+  ArrowDownToLine,
+  Info,
+} from 'lucide-react';
 import PageHeader from '../../components/common/PageHeader.jsx';
 import Breadcrumbs from '../../components/common/Breadcrumbs.jsx';
 import Panel from '../../components/common/Panel.jsx';
@@ -9,5 +15,153 @@ import FileUploadZone from '../../components/assignments/FileUploadZone.jsx';
 import { assignments, rubric } from '../../data/mockAssignments.js';
 export default function AssignmentDetail({ submission = false }) {
   const assignment = assignments[0];
-  return <><Breadcrumbs items={['Assignments', 'CS 201', submission ? 'Submission' : 'Assignment details']} /><PageHeader title={submission ? 'Submit your assignment' : assignment.title} description={`${assignment.course.title} · ${assignment.course.instructor.name}`}><StatusBadge status={assignment.status} /></PageHeader><div className="content-columns"><div className="stack"><Panel title="The assignment"><div className="panel__body prose"><p>{assignment.description}</p><h3>Instructions</h3><ol><li>Create an adjacency-list representation that supports directed and undirected graphs.</li><li>Implement breadth-first search and depth-first search. Return the traversal order for each algorithm.</li><li>Handle disconnected graphs, cycles, and empty input. Include tests for each case.</li><li>Write a short report comparing the time and space complexity of both implementations.</li></ol><h3>What to submit</h3><p>Submit your source code, test cases, and a README in one ZIP file. Include your analysis as a PDF or TXT file. Use your name in each filename.</p><div className="info-note"><Info size={18} aria-hidden="true" /><span>Your work must be your own. Cite any external resources in your README.</span></div></div></Panel><Panel title="Resources"><div className="resource-row"><FileText size={23} aria-hidden="true" /><div><strong>Graph traversal starter files.zip</strong><p>ZIP · 48 KB</p></div><Button variant="icon" aria-label="Download starter files"><ArrowDownToLine size={18} /></Button></div></Panel><Panel title="Your submission" description="Add your files and an optional note for your instructor."><div className="panel__body stack"><FileUploadZone /><FormField id="submission-notes" label="Submission notes" multiline placeholder="Anything you would like your instructor to know?" hint="Optional · Include setup instructions if needed." /><div className="form-actions"><span className="secondary-text">No files added</span><Button>Submit assignment</Button></div></div></Panel></div><aside className="stack"><Panel title="Assignment details"><dl className="detail-list"><div><dt><CalendarDays size={16} />Due date</dt><dd>{assignment.due}<small>{assignment.time} · UTC+7</small></dd></div><div><dt><FileText size={16} />Maximum score</dt><dd>100 points</dd></div><div><dt><Clock size={16} />Submission status</dt><dd><StatusBadge status="In progress" /></dd></div><div><dt>Accepted formats</dt><dd>ZIP, PDF, TXT<small>10 MB maximum per file</small></dd></div></dl></Panel><Panel title="Grading rubric"><div className="rubric-list">{rubric.map(item => <div key={item.title}><div><strong>{item.title}</strong><span>{item.points} pts</span></div><p>{item.description}</p></div>)}</div></Panel></aside></div></>;
+  return (
+    <>
+      <Breadcrumbs
+        items={[
+          'Assignments',
+          'CS 201',
+          submission ? 'Submission' : 'Assignment details',
+        ]}
+      />
+      <PageHeader
+        title={submission ? 'Submit your assignment' : assignment.title}
+        description={`${assignment.course.title} · ${assignment.course.instructor.name}`}
+      >
+        <StatusBadge status={assignment.status} />
+      </PageHeader>
+      <div className="content-columns">
+        <div className="stack">
+          <Panel title="The assignment">
+            <div className="panel__body prose">
+              <p>{assignment.description}</p>
+              <h3>Instructions</h3>
+              <ol>
+                <li>
+                  Create an adjacency-list representation that supports directed
+                  and undirected graphs.
+                </li>
+                <li>
+                  Implement breadth-first search and depth-first search. Return
+                  the traversal order for each algorithm.
+                </li>
+                <li>
+                  Handle disconnected graphs, cycles, and empty input. Include
+                  tests for each case.
+                </li>
+                <li>
+                  Write a short report comparing the time and space complexity
+                  of both implementations.
+                </li>
+              </ol>
+              <h3>What to submit</h3>
+              <p>
+                Submit your source code, test cases, and a README in one ZIP
+                file. Include your analysis as a PDF or TXT file. Use your name
+                in each filename.
+              </p>
+              <div className="info-note">
+                <Info
+                  size={18}
+                  aria-hidden="true"
+                />
+                <span>
+                  Your work must be your own. Cite any external resources in
+                  your README.
+                </span>
+              </div>
+            </div>
+          </Panel>
+          <Panel title="Resources">
+            <div className="resource-row">
+              <FileText
+                size={23}
+                aria-hidden="true"
+              />
+              <div>
+                <strong>Graph traversal starter files.zip</strong>
+                <p>ZIP · 48 KB</p>
+              </div>
+              <Button
+                variant="icon"
+                aria-label="Download starter files"
+              >
+                <ArrowDownToLine size={18} />
+              </Button>
+            </div>
+          </Panel>
+          <Panel
+            title="Your submission"
+            description="Add your files and an optional note for your instructor."
+          >
+            <div className="panel__body stack">
+              <FileUploadZone />
+              <FormField
+                id="submission-notes"
+                label="Submission notes"
+                multiline
+                placeholder="Anything you would like your instructor to know?"
+                hint="Optional · Include setup instructions if needed."
+              />
+              <div className="form-actions">
+                <span className="secondary-text">No files added</span>
+                <Button>Submit assignment</Button>
+              </div>
+            </div>
+          </Panel>
+        </div>
+        <aside className="stack">
+          <Panel title="Assignment details">
+            <dl className="detail-list">
+              <div>
+                <dt>
+                  <CalendarDays size={16} />
+                  Due date
+                </dt>
+                <dd>
+                  {assignment.due}
+                  <small>{assignment.time} · UTC+7</small>
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  <FileText size={16} />
+                  Maximum score
+                </dt>
+                <dd>100 points</dd>
+              </div>
+              <div>
+                <dt>
+                  <Clock size={16} />
+                  Submission status
+                </dt>
+                <dd>
+                  <StatusBadge status="In progress" />
+                </dd>
+              </div>
+              <div>
+                <dt>Accepted formats</dt>
+                <dd>
+                  ZIP, PDF, TXT<small>10 MB maximum per file</small>
+                </dd>
+              </div>
+            </dl>
+          </Panel>
+          <Panel title="Grading rubric">
+            <div className="rubric-list">
+              {rubric.map((item) => (
+                <div key={item.title}>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <span>{item.points} pts</span>
+                  </div>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </Panel>
+        </aside>
+      </div>
+    </>
+  );
 }

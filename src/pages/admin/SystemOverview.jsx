@@ -4,5 +4,81 @@ import Panel from '../../components/common/Panel.jsx';
 import EmptyState from '../../components/common/EmptyState.jsx';
 import StatusBadge from '../../components/common/StatusBadge.jsx';
 export default function SystemOverview() {
-  return <><PageHeader title="System overview" description="The foundations behind your learning workspace." /><div className="system-grid">{[{ icon: Server, title: 'Frontend preview', status: 'Operational', text: 'React + Vite · Static presentation' }, { icon: Database, title: 'Backend connection', status: 'Not connected', text: 'API integration reserved for development' }, { icon: HardDrive, title: 'File storage', status: 'Not connected', text: 'Uploads are visual placeholders' }, { icon: ShieldCheck, title: 'Authentication', status: 'Not connected', text: 'No session or access control implemented' }].map(({ icon: Icon, title, status, text }) => <article className="system-card surface" key={title}><Icon size={23} aria-hidden="true" /><h2>{title}</h2><StatusBadge status={status} /><p>{text}</p></article>)}</div><div className="content-columns"><Panel title="Service metrics"><EmptyState title="No live metrics yet" description="Connect the backend to display service health, response times, and resource use." /></Panel><Panel title="Environment details"><dl className="detail-list"><div><dt>Workspace</dt><dd>Northstar Academy</dd></div><div><dt>Environment</dt><dd>Local visual preview</dd></div><div><dt>Data source</dt><dd>Separate static mock files</dd></div><div><dt>Time zone</dt><dd>UTC+7 · Ho Chi Minh City</dd></div></dl></Panel></div></>;
+  return (
+    <>
+      <PageHeader
+        title="System overview"
+        description="The foundations behind your learning workspace."
+      />
+      <div className="system-grid">
+        {[
+          {
+            icon: Server,
+            title: 'Frontend preview',
+            status: 'Operational',
+            text: 'React + Vite · Static presentation',
+          },
+          {
+            icon: Database,
+            title: 'Backend connection',
+            status: 'Not connected',
+            text: 'API integration reserved for development',
+          },
+          {
+            icon: HardDrive,
+            title: 'File storage',
+            status: 'Not connected',
+            text: 'Uploads are visual placeholders',
+          },
+          {
+            icon: ShieldCheck,
+            title: 'Authentication',
+            status: 'Not connected',
+            text: 'No session or access control implemented',
+          },
+        ].map(({ icon: Icon, title, status, text }) => (
+          <article
+            className="system-card surface"
+            key={title}
+          >
+            <Icon
+              size={23}
+              aria-hidden="true"
+            />
+            <h2>{title}</h2>
+            <StatusBadge status={status} />
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+      <div className="content-columns">
+        <Panel title="Service metrics">
+          <EmptyState
+            title="No live metrics yet"
+            description="Connect the backend to display service health, response times, and resource use."
+          />
+        </Panel>
+        <Panel title="Environment details">
+          <dl className="detail-list">
+            <div>
+              <dt>Workspace</dt>
+              <dd>Northstar Academy</dd>
+            </div>
+            <div>
+              <dt>Environment</dt>
+              <dd>Local visual preview</dd>
+            </div>
+            <div>
+              <dt>Data source</dt>
+              <dd>Separate static mock files</dd>
+            </div>
+            <div>
+              <dt>Time zone</dt>
+              <dd>UTC+7 · Ho Chi Minh City</dd>
+            </div>
+          </dl>
+        </Panel>
+      </div>
+    </>
+  );
 }
