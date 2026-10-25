@@ -6,3 +6,4 @@ artifacts/
 .pnpm-store/
 .git/
 .prettierrc.json
+backend/.venv/

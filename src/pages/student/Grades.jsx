@@ -44,15 +44,8 @@ export default function Grades() {
         <Panel title="Course performance">
           <div className="panel__body stack">
             {courses.slice(0, 3).map((course) => {
-              const courseGrades = grades.filter(
-                (item) => item.assignment.course.id === course.id,
-              );
-              const value = courseGrades.length
-                ? Math.round(
-                    courseGrades.reduce((sum, item) => sum + item.earned, 0) /
-                      courseGrades.length,
-                  )
-                : 0;
+              const courseGrades = grades.filter((item) => item.assignment.course.id === course.id,);
+              const value = courseGrades.length ? Math.round(courseGrades.reduce((sum, item) => sum + item.earned, 0) /courseGrades.length,): 0;
               return (
                 <div key={course.id}>
                   {courseGrades.length ? (

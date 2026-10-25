@@ -8,7 +8,7 @@ export default function GradeCard({ title, score, detail }) {
           aria-hidden="true"
         />
         {title}
-      </span>
+      </span> 
       <strong>{score}</strong>
       <p>{detail}</p>
     </article>
